@@ -1,5 +1,9 @@
+/* El controlador es el intermediario entre logica y consumo de la bd */
+
+/* Repository es donde hacemos las sentencias sql para hacer el crud*/
 const { getClientById, getAllClients, createUserBD, updateUserBD, changeStatus, deleteDB } = require("../repository/simuladorRepository");
 
+/* Obtener uno o todos */
 const getOneOrAll = async (req, res) => {
 
     const { query, params } = req;
@@ -21,7 +25,7 @@ const getOneOrAll = async (req, res) => {
     res.send(response);
 };
 
-
+/* Crear Cliente */
 const createClient = async (req, res) => {
     let response = {};
 
@@ -34,11 +38,6 @@ const createClient = async (req, res) => {
             response = await createUserBD(body.accountNumber, body.name, body.age, body.accountType);
         }
 
-        //lógica para crear un todo
-        // let response = {
-        //     state: true,
-        //     itemCreated: body,
-        // };
     } catch (error) {
         response = {
             state: false,
@@ -50,6 +49,7 @@ const createClient = async (req, res) => {
     res.send(response);
 }
 
+/* Actualizar todas las propiedades del cliente */
 const updateClient = async (req, res) => {
     let response = {
         state: false,
@@ -93,15 +93,13 @@ const updateClient = async (req, res) => {
     res.send(response);
 };
 
+/* Cambiar solo una propiedad del cliente */
 const changeStatusClient = async (req, res) => {
     let response = {
         state: false,
     };
     try {
-        const {
-            params: { id },
-        } = req;
-
+        const { params: { id }, } = req;
         const { body: { status } } = req;
 
         if (id) {
@@ -123,29 +121,19 @@ const changeStatusClient = async (req, res) => {
 };
 
 
-
-
+/* Eliminar un cliente por id */
 const deleteClient = async (req, res) => {
     let response = {
         state: false,
     };
     try {
-        const {
-            params: { id },
-        } = req;
+        const { params: { id }, } = req;
 
         if (id) {
             const deleteProcess = await deleteDB(id);
             response.state = true;
             response.process = deleteProcess;
-            // const itemToDelete = todoItems.findIndex((x) => x.id === Number(id));
-            // if (itemToDelete > -1) {
-            //   todoItems.splice(itemToDelete, 1);
-            //   response.state = true;
-            //   response.message = "Elemento eleminado correctamente";
-            // } else {
-            //   response.message = "No se encontró un item con el id proporcionado.";
-            // }
+
         } else {
             response.message = "No indicó un id a eliminar";
         }
@@ -157,10 +145,10 @@ const deleteClient = async (req, res) => {
         console.log(error);
     }
 
-    //lógica para eliminar un todo
     res.send(response);
 };
 
+/* Exportamos las funciones para que esten disponibles */
 module.exports = {
     getOneOrAll, createClient, updateClient, changeStatusClient, deleteClient
 };
