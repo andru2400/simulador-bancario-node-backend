@@ -59,7 +59,7 @@ const updateUserBD = async (id, accountNumber, name, age, accountType) => {
     return rows;
 };
 
-
+/* Cambia el estado del cliente */
 const changeStatus = async (id, currentStatus) => {
 
     let newStatus = "";
@@ -70,17 +70,25 @@ const changeStatus = async (id, currentStatus) => {
     }
 
     const sql = "update usuarios set status=? where id =?";
-
     const [rows] = await connection.query(sql, [newStatus, id]);
-
     return rows;
 };
 
 
+/* Eliminacion del cliente */
+const deleteDB = async (id) => {
+    const sql = "delete from usuarios where id=?";
+    const [rows] = await connection.query(sql, [id]);
+    return rows;
+};
+
+
+/* Siempre exportar para que los demas la usen */
 module.exports = {
     getClientById,
     getAllClients,
     createUserBD,
     updateUserBD,
-    changeStatus
+    changeStatus,
+    deleteDB
 };

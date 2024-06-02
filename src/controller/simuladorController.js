@@ -1,4 +1,4 @@
-const { getClientById, getAllClients, createUserBD, updateUserBD, changeStatus } = require("../repository/simuladorRepository");
+const { getClientById, getAllClients, createUserBD, updateUserBD, changeStatus, deleteDB } = require("../repository/simuladorRepository");
 
 const getOneOrAll = async (req, res) => {
 
@@ -78,15 +78,7 @@ const updateClient = async (req, res) => {
             console.log(updateProcess);
             response.state = true;
             response.process = updateProcess;
-            // const indexItemToUpdate = todoItems.findIndex((x) => x.id === Number(id));
-            // if (indexItemToUpdate > -1) {
-            //   todoItems[indexItemToUpdate].priority = priority;
-            //   todoItems[indexItemToUpdate].description = description;
-            //   response.state = true;
-            //   response.message = "Elemento actualizado correctamente";
-            // } else {
-            //   response.message = "No se encontró un item con el id proporcionado.";
-            // }
+
         } else {
             response.message = "No indicó un id o una prioridad o una descripción a actualizar";
         }
@@ -130,6 +122,45 @@ const changeStatusClient = async (req, res) => {
     res.send(response);
 };
 
+
+
+
+const deleteClient = async (req, res) => {
+    let response = {
+        state: false,
+    };
+    try {
+        const {
+            params: { id },
+        } = req;
+
+        if (id) {
+            const deleteProcess = await deleteDB(id);
+            response.state = true;
+            response.process = deleteProcess;
+            // const itemToDelete = todoItems.findIndex((x) => x.id === Number(id));
+            // if (itemToDelete > -1) {
+            //   todoItems.splice(itemToDelete, 1);
+            //   response.state = true;
+            //   response.message = "Elemento eleminado correctamente";
+            // } else {
+            //   response.message = "No se encontró un item con el id proporcionado.";
+            // }
+        } else {
+            response.message = "No indicó un id a eliminar";
+        }
+    } catch (error) {
+        response = {
+            state: false,
+            message: "Ocurrió un error inesperado, consulta al administrador",
+        };
+        console.log(error);
+    }
+
+    //lógica para eliminar un todo
+    res.send(response);
+};
+
 module.exports = {
-    getOneOrAll, createClient, updateClient, changeStatusClient
+    getOneOrAll, createClient, updateClient, changeStatusClient, deleteClient
 };

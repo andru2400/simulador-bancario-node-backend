@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importamos las funcionalidades
-const { getOneOrAll, createClient, updateClient, changeStatusClient } = require("./controller/simuladorController");
+const { getOneOrAll, createClient, updateClient, changeStatusClient, deleteClient } = require("./controller/simuladorController");
 
 /* ----------------------------     Aqui van las Rutas ----------------------------------------- */
 // router.get('/', (req, res) => {
@@ -13,23 +13,7 @@ router.get("/obtenerCliente/:id?", getOneOrAll);            /* Obtener un client
 router.post("/crearCliente", createClient);                 /* Crea un cliente */
 router.put("/editarCliente/:id?", updateClient);            /* Editar cliente */
 router.patch("/cambiarEstado/:id?", changeStatusClient);    /* Cambiar Estado cliente */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+router.delete("/eliminarCliente/:id?", deleteClient);       /* Eliminar cliente */
 
 /* ------------------------------------------------------------------------------------------------ */
 
