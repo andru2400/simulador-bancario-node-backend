@@ -3,6 +3,7 @@ const connection = require("../config/mysql.connection");
 var jwt = require("jsonwebtoken");
 
 const signToken = (userData) => {
+    console.log(userData, privateKey, { expiresIn })
     return jwt.sign(userData, privateKey, { expiresIn });
 };
 

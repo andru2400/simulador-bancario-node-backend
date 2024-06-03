@@ -18,6 +18,10 @@ router.patch("/cambiarEstado/:id?", changeStatusClient);    /* Cambiar Estado cl
 router.delete("/eliminarCliente/:id?", deleteClient);       /* Eliminar cliente */
 
 router.post("/login", checkUser);                           /* Revisa las credenciales del cliente */
+
+/* Prueba de Ruta protegida por oken de jwt */
+router.get("/obtenerClienteJwt/:id?", [checkAutentication], getOneOrAll);            /* Obtener un cliente por id  , si no lo trae obiene todos  */
+
 /* ------------------------------------------------------------------------------------------------ */
 
 // Exportar el router para usarlo en el archivo principal

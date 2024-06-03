@@ -9,7 +9,7 @@ const checkUser = async (req, res) => {
         if (email && password) {
             //revisar que exista un usuario (enviado)
             const [user] = await checkUserDB(email);
-            console.log(`user`, user);
+
             if (user) {
                 //const encrypt = await bcrypt.hashSync(password, saltRounds);
                 // $2b$10$SWnj6UFl57muSOJcyqCDhuQipINaFv4NVEoBI/Lz2nMbxVHoCwKAW
@@ -20,22 +20,19 @@ const checkUser = async (req, res) => {
                 //console.log("encriptada: ", encrypt);
                 //revisión del usuario en la base de datos.
                 //encriptar la contraseña que me envian
-                // aaabbbccddd->j3298jf9r3jfef98jsdlfkj3fjj389sd
-
+                // aaabbbccddd->j3298jf9r3jfef98jsdlfkj3fjj389sd           
 
                 //revisó esa contraseña y la comparo con la de la base de datos.
+                console.log(password, user.password);
                 const match = await bcrypt.compare(password, user.password);
                 console.log(match);
                 if (match) {
                     const {
-                        tu_id: id,
-                        tu_name: name,
-                        tu_last_name: lastName,
-                        tu_email: email,
-                        tu_rol: rol,
+                        id: id,
                     } = user;
-                    console.log();
-                    const userClear = { id, name, lastName, email, rol };
+                    console.log(req.headers.authorization);
+
+                    const userClear = { id };
                     const token = signToken(userClear);
                     // response = { state: true, token, user: userClear };
                     response = { state: true, data: { token, user: userClear } };
