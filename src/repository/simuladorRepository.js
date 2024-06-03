@@ -60,12 +60,19 @@ const updateUserBD = async (id, accountNumber, name, age, accountType) => {
 };
 
 /* Cambia el estado del cliente */
-const changeStatus = async (id, currentStatus) => {
+const changeStatus = async (id) => {
+
+    /*  Averigua cual es el ultimo estado */
+    const sqlConsult = "select * from usuarios where id = ?";
+    const [searchItem] = await connection.query(sqlConsult, [id]);
+    let currentStatus = searchItem[0]['status'];
 
     let newStatus = "";
+
+    /* Compara y cambia de estado dependiendo el ultimo estado en la bd */
     if (currentStatus === 'active') {
         newStatus = 'inactive';
-    } else {
+    } else if (currentStatus === 'inactive') {
         newStatus = 'active';
     }
 

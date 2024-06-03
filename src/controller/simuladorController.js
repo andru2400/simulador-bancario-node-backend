@@ -103,7 +103,7 @@ const changeStatusClient = async (req, res) => {
         const { body: { status } } = req;
 
         if (id) {
-            const completeProcess = await changeStatus(id, status);
+            const completeProcess = await changeStatus(id);
             response.state = true;
             response.process = completeProcess;
         } else {
