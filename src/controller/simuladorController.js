@@ -34,8 +34,8 @@ const createClient = async (req, res) => {
         /* desestructuración */
         const { body } = req;
 
-        if (body.accountNumber && body.name && body.age && body.accountType) {
-            response = await createUserBD(body.accountNumber, body.name, body.age, body.accountType);
+        if (body.accountNumber && body.name && body.age && body.accountType && body.email) {
+            response = await createUserBD(body.accountNumber, body.name, body.age, body.accountType, body.email);
         }
 
     } catch (error) {

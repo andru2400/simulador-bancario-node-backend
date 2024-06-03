@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 // Se usa para apartar las rutas y verse mas organizado, en vez de definirlas aqui, se deja que el archivo router sea quien maneje la logica de rutas
 const router = require("./router");
 
-app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.json());                         // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Y usamos las rutas
