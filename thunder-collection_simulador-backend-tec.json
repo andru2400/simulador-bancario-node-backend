@@ -1,0 +1,144 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "simulador-backend-tec",
+    "collectionId": "6d2f05de-7f22-47b3-bb5c-6b3f00d332a6",
+    "dateExported": "2024-06-03T12:36:08.485Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "71aac7be-9db0-4c9b-b143-a28f3e4ddb14",
+            "colId": "6d2f05de-7f22-47b3-bb5c-6b3f00d332a6",
+            "containerId": "",
+            "name": "Obtener Clientes",
+            "url": "localhost:3000/obtenerCliente",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-06-03T02:08:51.089Z",
+            "modified": "2024-06-03T03:03:24.948Z",
+            "headers": []
+        },
+        {
+            "_id": "d9740dfb-52d9-4cca-a1a7-272a4715d6ee",
+            "colId": "6d2f05de-7f22-47b3-bb5c-6b3f00d332a6",
+            "containerId": "",
+            "name": "Obtener por id cliente",
+            "url": "localhost:3000/obtenerCliente/2",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-06-03T02:10:01.025Z",
+            "modified": "2024-06-03T02:10:49.358Z",
+            "headers": []
+        },
+        {
+            "_id": "83ed9116-afb2-4ec0-b871-bc6d96de2f3e",
+            "colId": "6d2f05de-7f22-47b3-bb5c-6b3f00d332a6",
+            "containerId": "",
+            "name": "Crear Cliente",
+            "url": "localhost:3000/crearCliente",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-06-03T02:11:12.174Z",
+            "modified": "2024-06-03T02:13:37.886Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"accountNumber\":\"888888888\",\n  \"name\":\"Andres sss\",\n  \"age\":\"29\",\n  \"accountType\":\"Ahorros\",\n  \"email\":\"andres@gmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "00f681a2-2deb-4a89-a556-2ed4f4d2b291",
+            "colId": "6d2f05de-7f22-47b3-bb5c-6b3f00d332a6",
+            "containerId": "",
+            "name": "Actualizar Cliente",
+            "url": "localhost:3000/editarCliente/9",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2024-06-03T02:16:37.283Z",
+            "modified": "2024-06-03T02:20:25.394Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"accountNumber\":\"888888888\",\n  \"name\":\"Andres Cambio sss\",\n  \"age\":\"30\",\n  \"accountType\":\"Ahorros\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "e5a686f9-3352-46c3-bff6-7059156c20fd",
+            "colId": "6d2f05de-7f22-47b3-bb5c-6b3f00d332a6",
+            "containerId": "",
+            "name": "Cambiar Estado de cliente",
+            "url": "localhost:3000/cambiarEstado/8",
+            "method": "PATCH",
+            "sortNum": 110000,
+            "created": "2024-06-03T02:22:39.317Z",
+            "modified": "2024-06-03T02:35:14.604Z",
+            "headers": []
+        },
+        {
+            "_id": "8114e36d-00ba-4ea5-849a-b55dc5ad1448",
+            "colId": "6d2f05de-7f22-47b3-bb5c-6b3f00d332a6",
+            "containerId": "",
+            "name": "Eliminar Cliente",
+            "url": "localhost:3000/eliminarCliente/8",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2024-06-03T02:40:14.905Z",
+            "modified": "2024-06-03T02:40:58.743Z",
+            "headers": []
+        },
+        {
+            "_id": "2db8e446-29b2-49b2-ac25-f94394dd2e3b",
+            "colId": "6d2f05de-7f22-47b3-bb5c-6b3f00d332a6",
+            "containerId": "",
+            "name": "Login",
+            "url": "localhost:3000/login",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-06-03T02:43:30.971Z",
+            "modified": "2024-06-03T02:52:06.174Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"andres@hotmail.com\",\n  \"password\":\"123456\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "46539907-db24-463e-a60b-48359b9660c5",
+            "colId": "6d2f05de-7f22-47b3-bb5c-6b3f00d332a6",
+            "containerId": "",
+            "name": "Obtener Clientes Con Token",
+            "url": "localhost:3000/obtenerClienteJwt",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2024-06-03T12:18:12.091Z",
+            "modified": "2024-06-03T12:18:46.498Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzE3NDE1NjEwLCJleHAiOjE3MTc0MTc0MTB9.ShAikgP9aw3gE1LpvyZ5l0SgdAAaXLnpNlTi3lhw0fs"
+                }
+            ]
+        },
+        {
+            "_id": "35008dac-655b-490f-b262-7f47df0273d0",
+            "colId": "6d2f05de-7f22-47b3-bb5c-6b3f00d332a6",
+            "containerId": "",
+            "name": "Crear Cliente con token",
+            "url": "localhost:3000/crearClienteJwt",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2024-06-03T12:23:51.917Z",
+            "modified": "2024-06-03T12:25:21.087Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzE3NDE1NjEwLCJleHAiOjE3MTc0MTc0MTB9.ShAikgP9aw3gE1LpvyZ5l0SgdAAaXLnpNlTi3lhw0fs"
+                }
+            ]
+        }
+    ],
+    "ref": "kMb8y0QA5Dv6xnZKJSg9PvKCrYWYa-JlDhqdz5DRFILH8avmHII_c_7c9MPGHcxKs26CvLDozi_7t6MkiJALcA"
+}

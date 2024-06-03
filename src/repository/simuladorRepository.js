@@ -33,6 +33,7 @@ const getAllClients = async () => {
 
 /* Crear un usuario */
 const createUserBD = async (accountNumber, name, age, accountType, email) => {
+
     try {
         const sql = "insert into usuarios (accountNumber,name, age, accountType, email) values (?,?,?,?,?);";
         const [rows] = await connection.query(sql, [accountNumber, name, age, accountType, email]);
