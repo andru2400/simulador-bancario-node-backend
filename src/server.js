@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 // por defecto 3000, podemos cambiar en las variables de entorno
 const port = process.env.PORT || 3000;
@@ -13,6 +14,9 @@ app.use(bodyParser.json());                         // for parsing application/j
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Y usamos las rutas
+app.use(cors({
+    origin: 'http://localhost:5173' // Permitir solicitudes desde este origen
+}));
 app.use(router);
 
 // Por defecto de la libreria express
