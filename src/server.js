@@ -14,9 +14,7 @@ app.use(bodyParser.json());                         // for parsing application/j
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Y usamos las rutas
-app.use(cors({
-    origin: 'http://localhost:5173' // Permitir solicitudes desde este origen
-}));
+app.use(cors());
 app.use(router);
 
 // Por defecto de la libreria express
