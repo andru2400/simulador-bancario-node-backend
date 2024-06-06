@@ -19,5 +19,5 @@ app.use(router);
 
 // Por defecto de la libreria express
 app.listen(port, () => {
-    console.log(`Servidor escuchando en http://localhost:${port}`);
+    console.log(`Servidor escuchando en ${port}`);
 });
