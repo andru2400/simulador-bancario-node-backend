@@ -11,6 +11,11 @@ const checkUser = async (req, res) => {
             const [user] = await checkUserDB(email);
 
             if (user) {
+                const {
+                    id: id,
+                    name: name,
+                } = user;
+
                 //const encrypt = await bcrypt.hashSync(password, saltRounds);
                 // $2b$10$SWnj6UFl57muSOJcyqCDhuQipINaFv4NVEoBI/Lz2nMbxVHoCwKAW
                 // $2b$10$BZ19UpEgJuPliVwVyvixxuEAfHGtmulYxwHMCgkZrwGaucnXQIOPK
@@ -29,10 +34,11 @@ const checkUser = async (req, res) => {
                 if (match) {
                     const {
                         id: id,
+                        name: name,
                     } = user;
                     console.log(req.headers.authorization);
 
-                    const userClear = { id };
+                    const userClear = { id, name };
                     const token = signToken(userClear);
                     // response = { state: true, token, user: userClear };
                     response = { state: true, data: { token, user: userClear } };
