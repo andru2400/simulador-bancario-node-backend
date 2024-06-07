@@ -1,5 +1,6 @@
 const mysql = require("mysql2/promise");
 
+/* TEST */
 // MySQL connection
 // const pool = mysql.createPool({
 //     host: "localhost",
@@ -11,6 +12,7 @@ const mysql = require("mysql2/promise");
 //     queueLimit: 0,
 // });
 
+/* PRODUCTION */
 const pool = mysql.createPool({
     host: "monorail.proxy.rlwy.net",
     user: "root",
