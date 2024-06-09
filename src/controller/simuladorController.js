@@ -34,9 +34,12 @@ const createClient = async (req, res) => {
         /* desestructuración */
         const { body } = req;
 
+        console.log(body);
         if (body.accountNumber && body.name && body.age && body.accountType && body.email) {
+            console.log("Entro ");
             response = await createUserBD(body.accountNumber, body.name, body.age, body.accountType, body.email);
         }
+        console.log("No Entro ");
 
     } catch (error) {
         response = {
